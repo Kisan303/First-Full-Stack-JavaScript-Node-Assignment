@@ -1,0 +1,116 @@
+
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Add User
+        link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css")
+        style.
+            body {
+                background-color: #f5f5f7;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            }
+            .form-container {
+                background-color: #ffffff;
+                border-radius: 15px;
+                box-shadow: 0 8px 40px rgba(0, 0, 0, 0.1);
+                padding: 40px;
+                max-width: 800px;
+                margin: 40px auto;
+            }
+            h2 {
+                font-weight: bold;
+                color: #333;
+            }
+            .form-group label {
+                font-weight: 600;
+                color: #555;
+            }
+            .form-control {
+                border-radius: 10px;
+                border: 1px solid #ccc;
+                transition: border-color 0.3s, box-shadow 0.3s;
+                padding: 12px;
+            }
+            .form-control:focus {
+                border-color: #007bff;
+                box-shadow: 0 0 8px rgba(0, 123, 255, 0.25);
+            }
+            button {
+                border-radius: 10px;
+                padding: 12px 20px;
+                font-weight: bold;
+            }
+            .btn-success {
+                background-color: #28a745;
+                border: none;
+                transition: background-color 0.3s;
+            }
+            .btn-success:hover {
+                background-color: #218838;
+            }
+            .btn-primary {
+                background-color: #007bff;
+                border: none;
+                transition: background-color 0.3s;
+            }
+            .btn-primary:hover {
+                background-color: #0056b3;
+            }
+    body
+        .form-container
+            h2.text-center Add User
+            form(action="/addUser", method="POST")
+                .form-row
+                    .form-group.col-md-6
+                        label(for="firstName") First Name:
+                        input.form-control(type="text", id="firstName", name="firstName", required)
+
+                    .form-group.col-md-6
+                        label(for="lastName") Last Name:
+                        input.form-control(type="text", id="lastName", name="lastName", required)
+
+                .form-row
+                    .form-group.col-md-6
+                        label(for="dateOfBirth") Date of Birth:
+                        input.form-control(type="date", id="dateOfBirth", name="dateOfBirth", required)
+
+                    .form-group.col-md-6
+                        label(for="phoneNumber") Phone Number:
+                        input.form-control(type="text", id="phoneNumber", name="phoneNumber", required)
+
+                .form-row
+                    .form-group.col-md-6
+                        label(for="address1") Address 1:
+                        input.form-control(type="text", id="address1", name="address1", required)
+
+                    .form-group.col-md-6
+                        label(for="address2") Address 2:
+                        input.form-control(type="text", id="address2", name="address2")
+
+                .form-row
+                    .form-group.col-md-6
+                        label(for="city") City:
+                        input.form-control(type="text", id="city", name="city", required)
+
+                    .form-group.col-md-6
+                        label(for="postalCode") Postal Code:
+                        input.form-control(type="text", id="postalCode", name="postalCode", required)
+
+                .form-row
+                    .form-group.col-md-6
+                        label(for="country") Country:
+                        input.form-control(type="text", id="country", name="country", required)
+
+                    .form-group.col-md-6
+                        label(for="email") Email:
+                        input.form-control(type="email", id="email", name="email", required)
+
+                .form-group
+                    label(for="userNotes") User Notes:
+                    textarea.form-control(id="userNotes", name="userNotes", rows="4")
+
+                button.btn.btn-success.btn-block(type="submit") Add User
+
+            a.btn.btn-primary.btn-block(href="/viewUser") View Users

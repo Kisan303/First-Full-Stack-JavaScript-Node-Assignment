@@ -1,0 +1,13 @@
+Using Node.js with Express, Mongoose and MongoDB create a user website that is a CRUD application.
+
+It should manage the following data:
+
+User Last Name, First Name, Date of Birth, Address1, Address2, City, Postal Code, Country, Phone-Number, Email and User Notes. 
+
+The data should be collected by a web form and must use the POST HTTP method.
+
+The Web Application should have 3 pages.  One to add data, another to update data and the third to display the data in a table.  Add a delete button on the update page to delete a user.
+
+Use PUG or Handlebars to simplify the webpages.
+
+Use W3CSS  https://www.w3schools.com/w3css/ or BootStrap  https://getbootstrap.com/docs/5.0/getting-started/introduction/ to format the page and add menus and toolbars.

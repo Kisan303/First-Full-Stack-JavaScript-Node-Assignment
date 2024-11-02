@@ -1,0 +1,40 @@
+body {
+    background-color: #f8f9fa; /* Light gray background */
+    font-family: 'Arial', sans-serif;
+}
+
+.container {
+    background-color: #ffffff; /* White background for the form */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    transition: all 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.container:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Deeper shadow on hover */
+}
+
+h2 {
+    color: #343a40; /* Dark gray color for the header */
+}
+
+.btn {
+    transition: background-color 0.3s ease; /* Smooth background color transition */
+}
+
+.btn:hover {
+    background-color: #28a745; /* Change to a darker green on hover */
+}
+
+textarea {
+    height: 100px; /* Set a height for the textarea */
+}
+
+input, textarea {
+    transition: border-color 0.3s ease; /* Smooth border transition */
+}
+
+input:focus, textarea:focus {
+    border-color: #28a745; /* Green border on focus */
+    box-shadow: 0 0 5px rgba(40, 167, 69, 0.5); /* Glow effect */
+}
