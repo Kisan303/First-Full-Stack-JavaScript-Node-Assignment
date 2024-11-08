@@ -1,0 +1,64 @@
+extends layout.pug
+
+block content
+  doctype html
+  html(lang="en")
+    head
+      meta(charset="UTF-8")
+      meta(name="viewport", content="width=device-width, initial-scale=1.0")
+      link(rel="stylesheet", href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css")
+      link(rel="stylesheet", href="../style/style.css")
+
+    body
+      .container
+        h2 User Details
+        .row.d-flex.justify-content-center
+          .col-md-6
+            dt First Name
+            dd= user.firstName
+          .col-md-6
+            dt Last Name
+            dd= user.lastName
+
+        .row.d-flex.justify-content-center
+          .col-md-6
+            dt Date of Birth
+            dd= user.dateOfBirth.toISOString().split('T')[0]
+          .col-md-6
+            dt Address 1
+            dd= user.address1
+
+        .row.d-flex.justify-content-center
+          .col-md-6
+            dt Address 2
+            dd= user.address2
+          .col-md-6
+            dt City
+            dd= user.city
+
+        .row.d-flex.justify-content-center
+          .col-md-6
+            dt Postal Code
+            dd= user.postalCode
+          .col-md-6
+            dt Country
+            dd= user.country
+
+        .row.d-flex.justify-content-center
+          .col-md-6
+            dt Phone Number
+            dd= user.phoneNumber
+          .col-md-6
+            dt Email
+            dd= user.email
+
+        .row.d-flex.justify-content-center
+          .col-md-12
+            dt Note
+            dd
+              textarea.note-field(readonly)= user.userNotes
+
+        .button-group
+          a.btn-update(href=`/updateUser/${user._id}`) Update User
+          form(action=`/deleteUser/${user._id}`, method="POST", style="display:inline;")
+            button.btn-delete(type="submit") Delete User

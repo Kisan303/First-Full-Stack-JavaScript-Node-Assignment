@@ -1,16 +1,26 @@
+//STUDENT NAME: KISAN-RAI
+//STUDENT NUMBER: C0910925
+//ASSIGNMENT NAME:First Full-stack JavaScript & Node Assignment 
+
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
-const User = require('./models/User'); // Ensure you have the correct model path
+const path = require('path'); 
+const User = require('./models/User');
 
-const app = express();
+const app = express(); // Initialize the app object first
+
+// Serve static files from the "style" folder
+app.use('/style', express.static(path.join(__dirname, 'style')));
+
+// Middleware for parsing request bodies
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
 
 // Set up Pug as the view engine
 app.set('view engine', 'pug');
-app.set('views', './views'); // Ensure this directory is correct
+app.set('views', './views'); 
 
 // Connect to MongoDB
 mongoose.connect('mongodb+srv://root:qL1Zu8Piby76mhIb@cluster0.ocxny.mongodb.net/?retryWrites=true&w=majority')
@@ -24,7 +34,7 @@ app.get('/', (req, res) => {
 
 // Add User Form
 app.get('/addUser', (req, res) => {
-    res.render('addUser'); // Ensure addUser.pug exists in the views folder
+    res.render('addUser'); 
 });
 
 // Add User
@@ -55,7 +65,7 @@ app.post('/addUser', async (req, res) => {
 app.get('/viewUser', async (req, res) => {
     try {
         const users = await User.find({});
-        res.render('viewUser', { users }); // Ensure viewUser.pug exists
+        res.render('viewUser', { users });
     } catch (error) {
         console.error(error);
         res.status(500).send('Error fetching users');
@@ -66,7 +76,7 @@ app.get('/viewUser', async (req, res) => {
 app.get('/updateUser/:id', async (req, res) => {
     try {
         const user = await User.findById(req.params.id);
-        res.render('updateUser', { user }); // Ensure updateUser.pug exists
+        res.render('updateUser', { user });
     } catch (error) {
         console.error(error);
         res.status(500).send('Error fetching user for update');
@@ -107,13 +117,21 @@ app.post('/deleteUser/:id', async (req, res) => {
     }
 });
 
+// User Detail Page
+app.get('/viewUser/:id', async (req, res) => {
+    try {
+        const user = await User.findById(req.params.id);
+        res.render('userDetail', { user });
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Error fetching user details');
+    }
+});
+
 // Start the server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
 
-
-
-// localhose server port:
-// http://localhost:3000/
+// URLS: http://localhost:3000/viewUser
